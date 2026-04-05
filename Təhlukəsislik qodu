@@ -8,6 +8,7 @@ elif sifre.isdigit():
      print("DİQQƏT:Yalnız rəqəm istifadə etməyin,hərifdə əlavə edin.")
 else:
     ptint("UĞURLU:Şifrəniz kifayət qədər güclüdür.")
+
 # İstifadəçidən sözü soruşuruq
  soz=input("Gizlətmək istədiyin sözü yaz: ")
 # Gizli sözü saxlamaq üçün boş yer 
