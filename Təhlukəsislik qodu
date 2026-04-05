@@ -11,6 +11,7 @@ else:
 
 # İstifadəçidən sözü soruşuruq
  soz=input("Gizlətmək istədiyin sözü yaz: ")
+
 # Gizli sözü saxlamaq üçün boş yer 
 gizli_soz=""
 
