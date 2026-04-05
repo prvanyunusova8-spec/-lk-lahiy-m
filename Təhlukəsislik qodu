@@ -4,3 +4,5 @@ sifre=input("Yoxlamaq üçün şifrəni yaz:")
 #Şərti yoxlayırıq
 if len(sifre)<8:
    print("DİQQƏT:Şifrə 8 simvoldan qısa ola bilməz!")
+elif sifre.isdigit():
+     print("DİQQƏT:Yalnız rəqəm istifadə etməyin,hərifdə əlavə edin.")
