@@ -5,7 +5,7 @@ sifre=input("Yoxlamaq üçün şifrəni yaz:")
 if len(sifre)<8:
    print("DİQQƏT:Şifrə 8 simvoldan qısa ola bilməz!")
 elif sifre.isdigit():
-     print("DİQQƏT:Yalnız rəqəm istifadə etməyin,hərifdə əlavə edin.")
+    print("DİQQƏT:Yalnız rəqəm istifadə etməyin,hərifdə əlavə edin.")
 else:
     ptint("UĞURLU:Şifrəniz kifayət qədər güclüdür.")
 
