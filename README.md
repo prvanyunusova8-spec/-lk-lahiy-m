@@ -29,7 +29,7 @@
   <h1>Pərvanə Proqramlaşdırır!</h1>
   <div class="box">
     <p>Bu gün GitHub-da rəngli kod yazmağı öyrəndim.</p>
-    <p>Yaşım: [16]</p>
+    <p>Yaşım: [Bura yaşını yaz]</p>
   </div>
 </body>
 </html>
