@@ -1,0 +1,33 @@
+# Sİ Həkim və Biologiya Bazası
+organlar = {
+    "urek": "Ürək: Qanı bədənə vuraraq toxumaları oksigenlə təmin edən əzələvi orqan.",
+    "agciyer": "Ağciyərlər: Tənəffüs organıdır, qana oksigen verir və CO2-ni xaric edir.",
+    "mede": "Mədə: Qidanı turşu və fermentlərlə həzm edən əsas organ.",
+    "qaraciyer": "Qaraciyər: Bədənin 'kimya fabriki', öd istehsal edir və zəhərləri təmizləyir.",
+    "beyin": "Beyin: Bütün orqanizmin idarəetmə və təfəkkür mərkəzidir.",
+    "boyrek": "Böyrəklər: Qanı süzərək sidik əmələ gətirir və zərərli maddələri xaric edir.",
+    "deri": "Dəri: Bədənin ən böyük orqanıdır, xaricdən qoruyur.",
+    "qan": "Qan: Bədəndə oksigen, qida və hormonları daşıyan maye doku.",
+    "dnt": "DNT: İrsi məlumatları daşıyan və nəsildən-nəslə ötürən mürəkkəb molekul.",
+    "huceyre": "Hüceyrə: Canlıların ən kiçik struktur və funksional vahididir."
+}
+
+print("=== 🏥 Sİ Həkim və Biologiya Botu ===")
+print("Çıxış etmək üçün 'son' yazın.\n")
+
+while True:
+    sual = input("Orqan və ya bioloji anlayış yazın: ").lower().strip()
+    
+    if sual == "son":
+        print("\nSİ Həkim dayandırıldı. Sağ olun!")
+        break
+        
+    tapildi = False
+    for organ in organlar:
+        if organ in sual:
+            print(f"\n👨‍⚕️ [Sİ Cavabı]: {organlar[organ]}\n")
+            tapildi = True
+            break
+            
+    if not tapildi:
+        print("\n🤔 [Sİ Cavabı]: Bu anlayış tapılmadı. Başqa orqan yazın (məs: urek, beyin, boyrek, dnt).\n")
