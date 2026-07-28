@@ -141,4 +141,61 @@ def si_hekim_sistemi():
             print("\n🤔 Axtarılan anlayış bazada tapılmadı. Bazaya yeni dərslik bilikləri əlavə edə bilərik!\n")
 
 # Proqramı başladaq
-si_hekim_sistemi()
+si_hekim_sistemi()# 1. TƏCİLİ HALLAR SİYAHISI (Kritik Əlamətlər)
+tecili_hallar = ["qanaxma", "urekdə keskin agri", "nefes ala bilmiram", "huşunu itirma"]
+
+# 2. ƏSAS MƏLUMAT BAZASI
+tibb_bazasi = {
+    # Anatomiya
+    "urek": "❤️ ÜRƏK: Qan-damar sisteminin mərkəzidir. 4 kameralıdır.",
+    "beyin": "🧠 BEYİN: Mərkəzi sinir sisteminin idarəetmə mərkəzidir.",
+    # Pediatriya & Xəstəliklər
+    "qizdirma": "🌡️ QİZDIRMA: Bədənin infeksiyaya qarşı təbii müdafiə reaksiyasıdır. 38.5°C-dən yuxarı olduqda həkim məsləhəti vacibdir.",
+    "allergiya": "🤧 ALLERGİYA: İmmun sisteminin müəyyən maddələrə (toz, qida) həddindən artıq reaksiya verməsidir."
+}
+
+def si_dahi_hekim():
+    print("==================================================")
+    print("👨‍⚕️  DİO-TİBB: DAHİ Sİ TİBB ENSİKLOPEDİYASI v2.0")
+    print("==================================================")
+    print("• Axtarış üçün söz yazın.")
+    print("• Bazaya yeni söz əlavə etmək üçün 'elave et' yazın.")
+    print("• Çıxış üçün 'son' yazın.\n")
+
+    while True:
+        sual = input("🔍 Əmr və ya axtarış sözü: ").lower().strip()
+        
+        if sual == "son":
+            print("\n👋 Sistem dayandırıldı. Sağlam olun!")
+            break
+            
+        # 1. Təcili Hal Yoxlanışı
+        tecili_tapildi = False
+        for hal in tecili_hallar:
+            if hal in sual:
+                print("\n🚨 [TƏCİLİ XƏBƏRDARLIQ]: Bu simtom kritik ola bilər! Dərhal 103 Təcili Yardıma müraciət edin!\n")
+                tecili_tapildi = True
+                break
+        if tecili_tapildi:
+            continue
+            
+        # 2. Yeni Məlumat Əlavə Etmə Rejimi
+        if sual == "elave et":
+            yeni_soz = input("Yeni termin/orqan adı: ").lower().strip()
+            yeni_izah = input("Həmin terminin tibbi izahı: ").strip()
+            tibb_bazasi[yeni_soz] = yeni_izah
+            print(f"\n✅ '{yeni_soz}' uğurla məlumat bazasına əlavə olundu!\n")
+            continue
+
+        # 3. Məlumat Axtarışı
+        tapildi = False
+        for soz, izah in tibb_bazasi.items():
+            if soz in sual:
+                print(f"\n📖 [Sİ Tibb Biliyi]: {izah}\n")
+                tapildi = True
+                break
+                
+        if not tapildi:
+            print("\n🤔 Bu anlayış bazada tapılmadı. 'elave et' yazaraq özün daxil edə bilərsən!\n")
+
+si_dahi_hekim()
