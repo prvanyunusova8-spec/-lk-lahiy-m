@@ -30,4 +30,44 @@ while True:
             break
             
     if not tapildi:
-        print("\n🤔 [Sİ Cavabı]: Bu anlayış tapılmadı. Başqa orqan yazın (məs: urek, beyin, boyrek, dnt).\n")
+        print("\n🤔 [Sİ Cavabı]: Bu anlayış tapılmadı. Başqa orqan yazın (məs: urek, beyin, boyrek, dnt).\n")# Böyük Tibb və Biologiya Bazası (Gələcəkdə minlərlə sətir ola bilər)
+tibb_bazasi = {
+    # Anatomiya
+    "urek": {
+        "tip": "Orqan",
+        "haqqinda": "Qan-damar sisteminin mərkəzi orqanıdır. 4 kameralıdır.",
+        "sobe": "Kardiologiya"
+    },
+    "hipofiz": {
+        "tip": "Vəzi",
+        "haqqinda": "Beyində yerləşən, bütün hormonal sistemi idarə edən əsas daxili sekresiya vəzisi.",
+        "sobe": "Endokrinologiya"
+    },
+    # Simptomlar
+    "yuksek tezyiq": {
+        "tip": "Simptom",
+        "haqqinda": "Hipertoniya əlaməti ola bilər. Baş hərlənməsi və gicgah ağrısı ilə müşayiət olunur.",
+        "sobe": "Kardiologiya / Təcili Yardım"
+    }
+}
+
+print("=== 🔬 Dahi Sİ Tibb Ensiklopediyası ===")
+
+while True:
+    sorgu = input("\nAxtarmaq istədiyiniz anlayışı və ya simptomu yazın (Çıxış: 'son'): ").lower().strip()
+    
+    if sorgu == "son":
+        print("Sistem dayandırıldı. Məlumatlar qorunur!")
+        break
+        
+    tapildi = False
+    for meqale, melumat in tibb_bazasi.items():
+        if meqale in sorgu:
+            print(f"\n📌 [Növ]: {melumat['tip']}")
+            print(f"📖 [Məlumat]: {melumat['haqqinda']}")
+            print(f"🏥 [Aiddir]: {melumat['sobe']} şöbəsi")
+            tapildi = True
+            break
+            
+    if not tapildi:
+        print("\n🤔 Məlumat bazada tapılmadı. Bazaya yeni tibbi dərslik maddəsi əlavə etmək lazımdır.")
