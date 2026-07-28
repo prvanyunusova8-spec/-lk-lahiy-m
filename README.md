@@ -1,35 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-  body {
-    background-color: #0d1117; /* GitHub tünd fonu */
-    color: #58a6ff; /* Gözəl mavi rəng */
-    font-family: sans-serif;
-    text-align: center;
-    padding: 50px;
-  }
-  h1 {
-    color: #7ee787; /* Yaşıl başlıq */
-    border: 2px solid #7ee787;
-    padding: 10px;
-    display: inline-block;
-    border-radius: 10px;
-  }
-  .box {
-    background-color: #161b22;
-    border: 1px solid #30363d;
-    padding: 20px;
-    border-radius: 15px;
-    margin-top: 20px;
-  }
-</style>
-</head>
-<body>
-  <h1>Pərvanə Proqramlaşdırır!</h1>
-  <div class="box">
-    <p>Bu gün GitHub-da rəngli kod yazmağı öyrəndim.</p>
-    <p>Yaşım: [16]</p>
-  </div>
-</body>
-</html>
+# 👨‍⚕️ DİO-TİBB: Dahi Sİ Tibb Ensiklopediyası
+
+Mənim GitHub-da hazırladığım **Süni İntellekt əsaslı Tibb və Biologiya Məlumat Sistemi**. 
+
+Bu proqram Python dilində yazılmışdır və istifadəçilərə anatomiya, xəstəliklər, laboratoriya analizləri və təcili ilk yardım qaydaları haqqında dərslik biliklərini təqdim edir.
+
+---
+
+## 🌟 Əsas Funksiyalar
+* **🚨 Təcili Yardım Prioriteti:** Kritik halları (infarkt, insult, qanaxma) dərhal tanıyır və 103 Təcili Yardım xəbərdarlığı verir.
+* **🫀 Anatomiya və Fiziologiya:** Daxili orqanların iş prinsipini izah edir.
+* **🔬 Xəstəliklər və Simptomlar:** Müxtəlif patologiyalar haqqında ətraflı məlumat verir.
+* **🧪 Analizlər və Müayinələr:** Qan analizləri, USM, MRT və KT müayinələrinin nə olduğunu aydınlaşdırır.
+* **➕ Dinamik Baza:** İstifadəçi koda müdaxilə etmədən proqram daxilində yeni tibbi dərslik bilikləri əlavə edə bilər.
+
+---
+
+## 💻 Necə İşlətməli?
+Proqramı Python mühitində işə saldıqdan sonra qarşınıza çıxan menyudan (0-6) istədiyiniz bölməni seçə bilərsiniz.
+
+```bash
+python main.py
