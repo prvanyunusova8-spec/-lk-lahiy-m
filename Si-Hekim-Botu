@@ -70,4 +70,75 @@ while True:
             break
             
     if not tapildi:
-        print("\n🤔 Məlumat bazada tapılmadı. Bazaya yeni tibbi dərslik maddəsi əlavə etmək lazımdır.")
+        print("\n🤔 Məlumat bazada tapılmadı. Bazaya yeni tibbi dərslik maddəsi əlavə etmək lazımdır.")# 1. ANATOMİYA VƏ FİZİOLOGİYA BAZASI
+anatomiya = {
+    "urek": "❤️ ÜRƏK: Qan-damar sisteminin mərkəzidir. 4 kameralıdır (2 qulaqcıq, 2 mədəcik). Bədənə qan vurur.",
+    "beyin": "🧠 BEYİN: Mərkəzi sinir sisteminin idarəetmə mərkəzidir. Böyük yarımkürələr, beyincik və gövdədən ibarətdir.",
+    "qaraciyer": "🧪 QARACİYƏR: Bədənin 'kimya fabriki'dir. Öd istehsal edir, qanı toksinlərdən təmizləyir və qlikogen toplayır.",
+    "boyrek": "🩺 BÖYRƏKLƏR: Qanı filtrasiya edərək sidik əmələ gətirir. Təzyiqi və su-duz balansını tənzimləyir.",
+    "agciyer": "🫁 AĞCİYƏRLƏR: Qazlar mübadiləsini (O2 və CO2) təmin edir. Alveollardan ibarətdir.",
+    "pankreas": "🥗 MƏDƏALTl VƏZ: Həm həzm fermentləri, həm də insulin/qlükaqon hormonları ifraz edir."
+}
+
+# 2. XƏSTƏLİKLƏR VƏ SİMPTOMATOLOGİYA BAZASI
+xastaliklar = {
+    "diabet": "🩸 ŞƏKƏRLİ DİABET: İnsulin çatışmazlığı və ya toxumaların insulini qəbul etməməsi nəticəsində qanda şəkərin qalxması.",
+    "hipertoniya": "📊 HİPERTONİYA: Qan təzyiqinin xroniki olaraq 140/90 mm c.s.-dən yüksək olması.",
+    "qastrit": "🥖 QASTRİT: Mədənin selikli qişasının iltihabı. Mədə nahiyəsində ağrı və qıcqırma ilə müşayiət olunur.",
+    "pnevmoniya": "🫁 PNEVMONİYA (Zatəlcəm): Ağciyər toxumasının infeksion iltihabı."
+}
+
+# 3. FARMAKOLOGİYA (Dərman Grupları Haqqında Məlumat)
+farmakologiya = {
+    "antibiotik": "💊 ANTİBİOTİKLƏR: Yalnız BAKTERİAL infeksiyaları öldürür. Viruslara (qrip, soyuqdəymə) təsir etmir!",
+    "analgetik": "💊 ANALGETİKLƏR: Ağrıkəsicilərdir. Səbəbi müalicə etmir, yalnız ağrı siqnalını bloklayır."
+}
+
+def si_hekim_sistemi():
+    print("==================================================")
+    print("👨‍⚕️  DİO-TİBB: DAHİ Sİ TİBB ENSİKLOPEDİYASI")
+    print("==================================================")
+    print("Axtarış edə biləcəyiniz sahələr:")
+    print("• Orqanlar (urek, beyin, qaraciyer, boyrek...)")
+    print("• Xəstəliklər (diabet, hipertoniya, qastrit...)")
+    print("• Dərman qrupları (antibiotik, analgetik...)")
+    print("--------------------------------------------------")
+    print("❌ Çıxış üçün 'son' yazın.\n")
+
+    while True:
+        sual = input("🔍 Axtarış sözünü yazın: ").lower().strip()
+        
+        if sual == "son":
+            print("\n👋 Sistem dayandırıldı. Sağlam olun!")
+            break
+            
+        tapildi = False
+        
+        # Anatomiya axtarışı
+        for soz, melumat in anatomiya.items():
+            if soz in sual:
+                print(f"\n📖 [Anatomiya/Fiziologiya]: {melumat}\n")
+                tapildi = True
+                break
+                
+        # Xəstəlik axtarışı
+        if not tapildi:
+            for soz, melumat in xastaliklar.items():
+                if soz in sual:
+                    print(f"\n🔬 [Xəstəlik Haqqında]: {melumat}\n")
+                    tapildi = True
+                    break
+                    
+        # Farmakologiya axtarışı
+        if not tapildi:
+            for soz, melumat in farmakologiya.items():
+                if soz in sual:
+                    print(f"\n💊 [Farmakoloji Biliyi]: {melumat}\n")
+                    tapildi = True
+                    break
+                    
+        if not tapildi:
+            print("\n🤔 Axtarılan anlayış bazada tapılmadı. Bazaya yeni dərslik bilikləri əlavə edə bilərik!\n")
+
+# Proqramı başladaq
+si_hekim_sistemi()
