@@ -198,4 +198,139 @@ def si_dahi_hekim():
         if not tapildi:
             print("\n🤔 Bu anlayış bazada tapılmadı. 'elave et' yazaraq özün daxil edə bilərsən!\n")
 
+si_dahi_hekim()# ==============================================================================
+# 🧠 DAHİ Sİ TİBB MƏLUMAT BAZASI (CUMULATIVE MEDICAL KNOWLEDGE BASE)
+# ==============================================================================
+
+# 1. 🚨 TƏCİLİ CRITICAL HALLAR VƏ İLK YARDIM
+tecili_hallar = {
+    "qanaxma": "🚨 TƏCİLİ YARDIM (103): Yaraya təmiz bezlə bərk təzyiq edin. Arterial qanaxma zamanı turna tədbiq olunmalıdır.",
+    "ureyim agriyir": "🚨 TƏCİLİ YARDIM (103): Sol qola/çənəyə vuran kəskin ağrı İNFARKT əlaməti ola bilər. Xəstəni otuzdurun və təcili yardım çağırın!",
+    "infarkt": "🚨 TƏCİLİ YARDIM (103): Ürəyin tac damarlarının tutulmasıdır. Dərhal həkim müdaxiləsi vacibdir.",
+    "insult": "🚨 TƏCİLİ YARDIM (103): Beyin qan dövranının kəskin pozulmasıdır. Əlamətləri: Üzün əyilməsi, qolun zəifləməsi, nitqin pozulması."
+}
+
+# 2. 🫀 ANATOMİYA VƏ FİZİOLOGİYA (DƏRSLİK BİLİKLƏRİ)
+anatomiya = {
+    "urek": "❤️ Ürək: Qan-damar sisteminin mərkəzidir. 4 kameralıdır (2 qulaqcıq, 2 mədəcik). Sağ tərəfdə venoz, sol tərəfdə arterial qan axır.",
+    "beyin": "🧠 Beyin: Mərkəzi sinir sisteminin idarəetmə mərkəzidir. Böyük yarımkürələr, beyincik və gövdədən ibarətdir. Yaklaşık 86 milyard neyrondan ibarətdir.",
+    "qaraciyer": "🧪 Qaraciyər: Bədənin 'kimya fabriki'dir. Öd (öd turşuları) istehsal edir, toxumaları zəhərli maddələrdən təmizləyir və qlikogen depolayır.",
+    "boyrek": "🩺 Böyrəklər: Qanı filtrasiya edərək sidik əmələ gətirir. Nefron adlanan mikroskopik süzgəclərdən ibarətdir.",
+    "agciyer": "🫁 Ağciyərlər: Qazlar mübadiləsini (O2 və CO2) təmin edir. Alveollar vasitəsilə qana oksigen ötürür.",
+    "pankreas": "🥗 Mədəaltı vəz: Həm həzm fermentləri (lipaza, amilaza), həm də insulin/qlükaqon hormonları ifraz edir."
+}
+
+# 3. 🔬 XƏSTƏLİKLƏR VƏ DİAQNOSTİKA (PATOLOGİYA)
+xastaliklar = {
+    "diabet": "🩸 Şəkərli Diabet: Mədəaltı vəzin insulin hormonunu yetərincə ifraz etməməsi və ya toxumaların insulini qəbul etməməsi (Tip 1 və Tip 2).",
+    "hipertoniya": "📊 Hipertoniya: Qan təzyiqinin xroniki olaraq 140/90 mm c.s.-dən yüksək olması. İnsult və infarkt riskini artırır.",
+    "qastrit": "🥖 Qastrit: Mədənin selikli qişasının iltihabı. Əsas səbəbi Helicobacter Pylori bakteriyası və yanlış qidalanmadır.",
+    "pnevmoniya": "🫁 Pnevmoniya (Zatəlcəm): Ağciyər toxumasının infeksion iltihabı. Yüksək qızdırma və öskürəklə müşayiət olunur.",
+    "anemiya": "🩸 Anemiya (Qanazlığı): Qanda hemoqlobinin və ya eritrositlərin sayının azalması. Əsasən dəmir çatışmazlığından yaranır."
+}
+
+# 4. 👶 PEDİATRİYA (UŞAQ XƏSTƏLİKLƏRİ)
+pediatriya = {
+    "qizdirma": "🌡️ Qızdırma: Uşaqlarda 38.5°C-yə qədər müdafiə reaksiyasıdır. Yüksək olduqda həkim məsləhəti ilə qızdırmasalıcı (Parasetamol/İbuprofen) verilir.",
+    "qizilca": "👶 Qızılca: İnfeksion virus xəstəliyidir. Səpkilər, yüksək qızdırma və öskürəkle seyr edir. Ən effektiv müdafiə PEYVƏNDDİR.",
+    "raxit": "☀️ Raxit: Uşaqlarda D vitamini çatışmazlığı nəticəsində sümük toxumasının yumşalması və deformasiyası."
+}
+
+# 5. 💊 FARMAKOLOGİYA (DƏRMAN BİLİKLƏRİ)
+farmakologiya = {
+    "antibiotik": "💊 Antibiotiklər: Yalnız BAKTERİAL infeksiyaları öldürür. Viruslara (qrip, soyuqdəymə) heç bir təsiri yoxdur!",
+    "analgetik": "💊 Analgetiklər: Ağrıkəsicilərdir. Ağrının səbəbini müalicə etmir, yalnız ağrı siqnalını bloklayır.",
+    "vitamin": "🥦 Vitaminlər: Bədəndə maddələr mübadiləsini və immun sistemini tənzimləyən bioaktiv maddələrdir."
+}
+
+# ==============================================================================
+# ⚙️ Sİ HƏKİM MƏNTİQİ (SEARCH ENGINE)
+# ==============================================================================
+
+def si_dahi_hekim():
+    print("===============================================================")
+    print("👨‍⚕️  DİO-TİBB: DAHİ Sİ TİBB VƏ BİOLOGİYA ENSİKLOPEDİYASI v3.0")
+    print("===============================================================")
+    print("Məlumat Bazasındakı Bölmələr:")
+    print("• 🚨 Təcili Hallar | 🫀 Anatomiya | 🔬 Xəstəliklər")
+    print("• 👶 Pediatriya    | 💊 Farmakologiya")
+    print("---------------------------------------------------------------")
+    print("• Bazaya yeni məlumat əlavə etmək üçün: 'elave et'")
+    print("• Çıxış üçün: 'son'\n")
+
+    while True:
+        sual = input("🔍 Axtarış sözünü yazın: ").lower().strip()
+        
+        if sual == "son":
+            print("\n👋 Sistem dayandırıldı. Məlumatlar qorunur. Sağlam olun!")
+            break
+            
+        # 1. TƏCİLİ HAL YOXLANIŞI (Prioritet 1)
+        tecili_tapildi = False
+        for hal, telimat in tecili_hallar.items():
+            if hal in sual:
+                print(f"\n{telimat}\n")
+                tecili_tapildi = True
+                break
+        if tecili_tapildi:
+            continue
+            
+        # 2. DİNAMİK MƏLUMAT ƏLAVƏ ET MƏNTİQİ
+        if sual == "elave et":
+            bolme = input("Hansı bölməyə əlavə edilsin? (anatomiya/xastaliklar/pediatriya/farmakologiya): ").lower().strip()
+            yeni_soz = input("Yeni termin/orqan/xəstəlik adı: ").lower().strip()
+            yeni_izah = input("Tibbi izahı: ").strip()
+            
+            if bolme == "anatomiya":
+                anatomiya[yeni_soz] = yeni_izah
+            elif bolme == "xastaliklar":
+                xastaliklar[yeni_soz] = yeni_izah
+            elif bolme == "pediatriya":
+                pediatriya[yeni_soz] = yeni_izah
+            elif bolme == "farmakologiya":
+                farmakologiya[yeni_soz] = yeni_izah
+            else:
+                xastaliklar[yeni_soz] = yeni_izah
+                
+            print(f"\n✅ '{yeni_soz}' uğurla tibb bazasına əlavə olundu!\n")
+            continue
+
+        # 3. MƏLUMAT BAZALARINDA AXTARIŞ (Prioritet 2)
+        tapildi = False
+        
+        # Anatomiya
+        for soz, izah in anatomiya.items():
+            if soz in sual:
+                print(f"\n📖 [Anatomiya & Fiziologiya]: {izah}\n")
+                tapildi = True
+                break
+                
+        # Xəstəliklər
+        if not tapildi:
+            for soz, izah in xastaliklar.items():
+                if soz in sual:
+                    print(f"\n🔬 [Xəstəlik & Diaqnostika]: {izah}\n")
+                    tapildi = True
+                    break
+
+        # Pediatriya
+        if not tapildi:
+            for soz, izah in pediatriya.items():
+                if soz in sual:
+                    print(f"\n👶 [Pediatriya - Uşaq Sağlamlığı]: {izah}\n")
+                    tapildi = True
+                    break
+
+        # Farmakologiya
+        if not tapildi:
+            for soz, izah in farmakologiya.items():
+                if soz in sual:
+                    print(f"\n💊 [Farmakoloji Məlumat]: {izah}\n")
+                    tapildi = True
+                    break
+                    
+        if not tapildi:
+            print("\n🤔 Bu anlayış bazada tapılmadı. 'elave et' yazaraq özün yeni tibbi dərslik biliyi əlavə edə bilərsən!\n")
+
+# Proqramı işə salırıq
 si_dahi_hekim()
