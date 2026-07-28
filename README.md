@@ -20,3 +20,4 @@ Proqramı Python mühitində işə saldıqdan sonra qarşınıza çıxan menyuda
 
 ```bash
 python main.py
+Mətni yapışdırdıqdan sonra yaşıl **"COMMIT CHANGES"** düyməsinə bas. Yoxla gör necə görünür?
