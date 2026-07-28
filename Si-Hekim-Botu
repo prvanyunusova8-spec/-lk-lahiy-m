@@ -461,4 +461,106 @@ def si_dahi_hekim():
             print("\n🤔 Bu anlayış bazada tapılmadı. 'elave et' yazaraq özün yeni tibbi dərslik biliyi əlavə edə bilərsən!\n")
 
 # İşə salırıq
-si_dahi_hekim()
+si_dahi_hekim()# ==============================================================================
+# 🧠 DAHİ Sİ TİBB VƏ DİAQNOSTİKA BAZASI v5.0 (MENYULU İNTERFEYS)
+# ==============================================================================
+
+tecili_hallar = {
+    "qanaxma": "🚨 TƏCİLİ YARDIM (103): Yaraya təmiz bezlə bərk təzyiq edin.",
+    "ureyim agriyir": "🚨 TƏCİLİ YARDIM (103): Sol qola/çənəyə vuran kəskin ağrı İNFARKT əlaməti ola bilər!",
+    "infarkt": "🚨 TƏCİLİ YARDIM (103): Ürəyin tac damarlarının kəskin tutulmasıdır.",
+    "insult": "🚨 TƏCİLİ YARDIM (103): Beyin qan dövranının kəskin pozulmasıdır."
+}
+
+anatomiya = {
+    "urek": "❤️ Ürək: Qan-damar sisteminin mərkəzidir. 4 kameralıdır.",
+    "beyin": "🧠 Beyin: Mərkəzi sinir sisteminin idarəetmə mərkəzidir.",
+    "qaraciyer": "🧪 Qaraciyər: Bədənin 'kimya fabriki'dir. Öd istehsal edir.",
+    "boyrek": "🩺 Böyrəklər: Qanı filtrasiya edərək sidik əmələ gətirir.",
+    "agciyer": "🫁 Ağciyərlər: Qazlar mübadiləsini (O2 və CO2) təmin edir."
+}
+
+xastaliklar = {
+    "diabet": "🩸 Şəkərli Diabet: Qanda şəkərin xroniki yüksəlməsidir.",
+    "hipertoniya": "📊 Hipertoniya: Qan təzyiqinin xroniki yüksək olması (140/90+).",
+    "qastrit": "🥖 Qastrit: Mədənin selikli qişasının iltihabıdır.",
+    "anemiya": "🩸 Anemiya: Qanda hemoqlobinin azalmasıdır."
+}
+
+analizler = {
+    "hemoqlobin": "🩸 Hemoqlobin (Hb): Oksigen daşıyan zülal. Azlığı anemiya göstəricisidir.",
+    "leykosit": "🛡️ Leykositlər: İmmunitet hüceyrələri. Yüksək olması iltihabı gösterir.",
+    "usm": "🔊 USM: Səs dalğaları ilə daxili orqanların görüntülənməsidir.",
+    "mrt": "🧲 MRT: Maqnit sahəsi ilə yumşaq toxumaların dəqiq təsviridir."
+}
+
+def hekim_botu():
+    while True:
+        print("\n=======================================================")
+        print("👨‍⚕️  DİO-TİBB: DAHİ Sİ TİBB MƏRKƏZİ v5.0")
+        print("=======================================================")
+        print("1️⃣  🔍 Sərbəst Axtarış (İstənilən sözü yazın)")
+        print("2️⃣  🚨 Təcili Hallar və İlk Yardım")
+        print("3️⃣  🫀 Anatomiya və Orqanlar")
+        print("4️⃣  🔬 Xəstəliklər")
+        print("5️⃣  🧪 Analizlər və Müayinələr (USM, MRT)")
+        print("6️⃣  ➕ Bazaya Yeni Məlumat Əlavə Et")
+        print("0️⃣  ❌ Çıxış")
+        print("-------------------------------------------------------")
+        
+        secim = input("👉 Seçiminizi daxil edin (0-6): ").strip()
+        
+        if secim == "0":
+            print("\n👋 Sağlam olun! Sistem dayandırıldı.")
+            break
+            
+        elif secim == "1":
+            sual = input("\n🔍 Axtarış sözünü yazın: ").lower().strip()
+            tapildi = False
+            
+            for hal, telimat in tecili_hallar.items():
+                if hal in sual:
+                    print(f"\n{telimat}")
+                    tapildi = True
+                    break
+                    
+            if not tapildi:
+                butun_bazalar = [anatomiya, xastaliklar, analizler]
+                for baza in butun_bazalar:
+                    for soz, izah in baza.items():
+                        if soz in sual:
+                            print(f"\n📖 [Sİ Cavabı]: {izah}")
+                            tapildi = True
+                            break
+                    if tapildi: break
+                    
+            if not tapildi:
+                print("\n🤔 Tapılmadı. 6-cı menyudan özün əlavə edə bilərsən!")
+                
+        elif secim == "2":
+            print("\n🚨 [TƏCİLİ HALLAR SİYAHISI]:")
+            for k, v in tecili_hallar.items():
+                print(f"• {k.upper()}: {v}")
+                
+        elif secim == "3":
+            print("\n🫀 [ANATOMİYA BAZASI]:")
+            for k, v in anatomiya.items():
+                print(f"• {v}")
+                
+        elif secim == "4":
+            print("\n🔬 [XƏSTƏLİKLƏR SİYAHISI]:")
+            for k, v in xastaliklar.items():
+                print(f"• {v}")
+
+        elif secim == "5":
+            print("\n🧪 [ANALİZ VƏ MÜAYİNƏLƏR]:")
+            for k, v in analizler.items():
+                print(f"• {v}")
+                
+        elif secim == "6":
+            yeni_soz = input("\nYeni termin/orqan adı: ").lower().strip()
+            yeni_izah = input("Tibbi izahı: ").strip()
+            xastaliklar[yeni_soz] = yeni_izah
+            print(f"\n✅ '{yeni_soz}' bazaya əlavə olundu!")
+
+hekim_botu()
