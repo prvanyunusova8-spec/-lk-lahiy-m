@@ -15,50 +15,85 @@
     }
     .header { text-align: center; padding: 10px 0; }
     .header h1 { margin: 0; font-size: 20px; color: #0088cc; }
+    
+    .tabs { display: flex; gap: 5px; margin-top: 15px; }
+    .tab-btn {
+      flex: 1; padding: 10px; background: #cbd5e0; border: none;
+      border-radius: 8px 8px 0 0; font-weight: bold; cursor: pointer; color: #2d3748;
+    }
+    .tab-btn.active { background: #ffffff; color: #0088cc; border-bottom: 2px solid #0088cc; }
+
     .card {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      margin-top: 15px;
+      background: #ffffff; border-radius: 0 0 12px 12px; padding: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 15px;
     }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
     .chat-box {
-      height: 200px;
-      overflow-y: auto;
-      border: 1px solid #e2e8f0;
-      padding: 10px;
-      border-radius: 8px;
-      background: #f7fafc;
-      margin-bottom: 10px;
+      height: 220px; overflow-y: auto; border: 1px solid #e2e8f0;
+      padding: 10px; border-radius: 8px; background: #f7fafc; margin-bottom: 10px;
     }
-    .message { margin-bottom: 8px; font-size: 13px; }
+    .message { margin-bottom: 8px; font-size: 13px; word-break: break-word; }
     .message .sender { font-weight: bold; color: #2b6cb0; }
+    .message .ai { font-weight: bold; color: #38a169; }
+    
     .input-group { display: flex; gap: 5px; }
-    .input-group input {
-      flex: 1; padding: 10px; border: 1px solid #cbd5e0; border-radius: 6px;
-    }
-    .input-group button {
-      background: #0088cc; color: white; border: none; padding: 10px 15px; border-radius: 6px; font-weight: bold;
-    }
+    .input-group input { flex: 1; padding: 10px; border: 1px solid #cbd5e0; border-radius: 6px; outline: none; }
+    .input-group button { background: #0088cc; color: white; border: none; padding: 10px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+    .mic-btn { background: #e53e3e !important; }
+
+    .info-item { background: #f7fafc; border-left: 4px solid #0088cc; padding: 10px; margin-bottom: 10px; border-radius: 4px; }
+    .info-item h4 { margin: 0 0 5px 0; color: #2b6cb0; }
+    .info-item p { margin: 0; font-size: 13px; color: #4a5568; line-height: 1.4; }
+    .emergency { border-left-color: #e53e3e; }
+
     button.exit-btn {
-      width: 100%; background: #e53e3e; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 15px; font-weight: bold; margin-top: 15px;
+      width: 100%; background: #e53e3e; color: white; border: none;
+      padding: 12px; border-radius: 8px; font-size: 15px; font-weight: bold; cursor: pointer;
     }
   </style>
 </head>
 <body>
 
   <div class="header">
-    <h1>👨‍⚕️ DİO-TİBB (Sİ Həkim Bot)</h1>
+    <h1>👨‍⚕️ DİO-TİBB Məsləhətxanası</h1>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="openTab('chat', event)">💬 Səsli Çat</button>
+    <button class="tab-btn" onclick="openTab('firstaid', event)">🚨 İlkin Yardım</button>
+    <button class="tab-btn" onclick="openTab('articles', event)">📚 Dərslik</button>
   </div>
 
   <div class="card">
-    <h3>💬 Pasiyent Çatı</h3>
-    <div class="chat-box" id="chatBox">
-      <div class="message"><span class="sender">Sistem:</span> Xoş gəlmisiniz! Sual və şikayətlərinizi bura yazın.</div>
+    <div id="chat" class="tab-content active">
+      <div class="chat-box" id="chatBox">
+        <div class="message"><span class="ai">DİO Həkim:</span> Xoş gəlmisiniz! Sualınızı yazın və ya 🎙️ düyməsinə basıb danışın, sizə səsli cavab verim.</div>
+      </div>
+      <div class="input-group">
+        <input type="text" id="msgInput" placeholder="Mesajınızı yazın və ya danışın...">
+        <button class="mic-btn" onclick="startVoiceInput()" title="Səsli Danış">🎙️</button>
+        <button onclick="sendMessage()">Göndər</button>
+      </div>
     </div>
-    <div class="input-group">
-      <input type="text" id="msgInput" placeholder="Mesajınızı yazın...">
-      <button onclick="sendMessage()">Göndər</button>
+
+    <div id="firstaid" class="tab-content">
+      <div class="info-item emergency">
+        <h4>🔥 Yüngül Yanıqlar</h4>
+        <p>Zədələnmiş nahiyəni dərhal 10-15 dəqiqə axar soyuq su altında saxlayın. Üzərinə yağ və ya diş məcunu yaxmayın!</p>
+      </div>
+      <div class="info-item emergency">
+        <h4>🩸 Burun Qanaması</h4>
+        <p>Başı geriyə YOX, yüngülcə irəliyə əyin. Burnu üst hissədən sıxaraq 5-10 dəqiqə gözləyin və alına soyuq dəsmal qoyun.</p>
+      </div>
+    </div>
+
+    <div id="articles" class="tab-content">
+      <div class="info-item">
+        <h4>💧 Düzgün Su Qəbulu</h4>
+        <p>Gün ərzində ortalama 1.5 - 2 litr su içmək maddələr mübadiləsini sürətləndirir və böyrək sağlamlığını qoruyur.</p>
+      </div>
     </div>
   </div>
 
@@ -67,16 +102,100 @@
   <script>
     const tg = window.Telegram.WebApp;
     tg.expand();
+
     const userName = tg.initDataUnsafe.user ? tg.initDataUnsafe.user.first_name : "Pasiyent";
 
+    function openTab(tabName, event) {
+      const contents = document.querySelectorAll('.tab-content');
+      const buttons = document.querySelectorAll('.tab-btn');
+      
+      contents.forEach(content => content.classList.remove('active'));
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      document.getElementById(tabName).classList.add('active');
+      event.currentTarget.classList.add('active');
+    }
+
+    // Səsli cavab vermək (TTS)
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'az-AZ';
+        window.speechSynthesis.speak(utterance);
+      }
+    }
+
+    // Mikrofondan səsi mətnə çevirmək (STT)
+    function startVoiceInput() {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition) {
+        alert("Cihazınız səs tanıma funksiyasını dəstəkləmir.");
+        return;
+      }
+
+      const recognition = new SpeechRecognition();
+      recognition.lang = 'az-AZ';
+      recognition.start();
+
+      const input = document.getElementById('msgInput');
+      input.placeholder = "Səsiniz dinlənilir...";
+
+      recognition.onresult = function(event) {
+        const transcript = event.results[0][0].transcript;
+        input.value = transcript;
+        sendMessage(); // Səs bitən kimi avtomatik göndər
+      };
+
+      recognition.onerror = function() {
+        input.placeholder = "Səs tutulmadı, yenidən sınayın.";
+      };
+    }
+
+    // Mesaj göndərmək və Həkimin Səsli Cavabı
     function sendMessage() {
       const input = document.getElementById('msgInput');
       const text = input.value.trim();
+
       if (text !== "") {
         const chatBox = document.getElementById('chatBox');
-        const msgDiv = document.createElement('div');
-        msgDiv.className = 'message';
-        msgDiv.innerHTML = `<span class="sender">${userName}:</span> ${text}`;
-        chatBox.appendChild(msgDiv);
+        
+        // İstifadəçi mesajı
+        const userMsg = document.createElement('div');
+        userMsg.className = 'message';
+        userMsg.innerHTML = `<span class="sender">${userName}:</span> ${text}`;
+        chatBox.appendChild(userMsg);
+
+        // Həkimin Avtomatik Cavabı
+        let replyText = "Məlumatınız qeydə alındı. Şikayətinizlə bağlı həkim məsləhəti üçün yaxınlıqdakı tibb məntəqəsinə müraciət etməyiniz tövsiyə olunur.";
+        
+        const lowerText = text.toLowerCase();
+        if (lowerText.includes("baş") || lowerText.includes("ağrı")) {
+          replyText = "Baş ağrısı stresdən və ya yorğunluqdan ola bilər. Bol su içib qaranlıq otaqda istirahət edin.";
+        } else if (lowerText.includes("salam")) {
+          replyText = "Salam! Sizə necə kömək edə bilərəm?";
+        }
+
+        setTimeout(() => {
+          const aiMsg = document.createElement('div');
+          aiMsg.className = 'message';
+          aiMsg.innerHTML = `<span class="ai">DİO Həkim:</span> ${replyText}`;
+          chatBox.appendChild(aiMsg);
+          chatBox.scrollTop = chatBox.scrollHeight;
+          
+          // Cavabı səsli oxu
+          speak(replyText);
+        }, 800);
+
         chatBox.scrollTop = chatBox.scrollHeight;
         input.value = "";
+        input.placeholder = "Mesajınızı yazın və ya danışın...";
+      }
+    }
+
+    document.getElementById('msgInput').addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') sendMessage();
+    });
+  </script>
+</body>
+</html>
